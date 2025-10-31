@@ -1,0 +1,13 @@
+print("sea bienvenido")
+entrada=input("Porfavor dijite un numero")
+numero1=int(entrada)
+entrada2=print("dijite otro numero")
+numero2=int(entrada2)
+suma=numero1+numero2
+print("resultado de la suma:",suma)
+resta=numero1-numero2
+print("resulta de la resta:",resta)
+multiplicacion=numero1*numero2
+print("resultado de la multiplicacion:",multiplicacion)
+divicion=numero1/numero2
+print("resultado de la divicion:",divicion)
