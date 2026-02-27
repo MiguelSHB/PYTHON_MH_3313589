@@ -1,0 +1,128 @@
+#HTML:
+<div class="container">
+  <h2>REGISTRO</h2>
+
+  <form id="registroForm">
+    
+    <label>Nombre y Apellidos</label>
+    <input type="text" id="nombre">
+
+    <label>Tipo de Documento</label>
+    <select id="tipoDoc">
+      <option value="">Seleccione</option>
+      <option>Cédula de ciudadanía</option>
+      <option>Tarjeta de identidad</option>
+      <option>Registro civil</option>
+      <option>Cédula extranjera</option>
+      <option>Permiso especial de permanencia</option>
+    </select>
+
+    <label>Sexo</label>
+    <select id="sexo">
+      <option value="">Seleccione</option>
+      <option>Hombre</option>
+      <option>Mujer</option>
+      <option>Otro</option>
+    </select>
+
+    <label>Número de Documento</label>
+    <input type="number" id="numDoc">
+
+    <label>Teléfono</label>
+    <input type="number" id="telefono">
+
+    <label>Contraseña</label>
+    <input type="password" id="password">
+
+    <label>Correo Electrónico</label>
+    <input type="email" id="correo">
+
+    <button type="submit">CREAR USUARIO</button>
+
+    <p id="mensaje"></p>
+  </form>
+</div>
+#CSS:
+body {
+  font-family: Arial;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+  background: linear-gradient(to right, #4e73df, #224abe);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+label {
+  margin-top: 10px;
+  display: block;
+  font-size: 14px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #218838;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+#JS:
+document.getElementById("registroForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let nombre = document.getElementById("nombre").value.trim();
+  let tipoDoc = document.getElementById("tipoDoc").value;
+  let sexo = document.getElementById("sexo").value;
+  let numDoc = document.getElementById("numDoc").value;
+  let telefono = document.getElementById("telefono").value;
+  let password = document.getElementById("password").value;
+  let correo = document.getElementById("correo").value;
+  let mensaje = document.getElementById("mensaje");
+
+  if (!nombre || !tipoDoc || !sexo || !numDoc || !telefono || !password || !correo) {
+    mensaje.textContent = "❌ Faltan datos por completar";
+    mensaje.className = "error";
+  } else {
+    mensaje.textContent = "✅ Usuario creado correctamente";
+    mensaje.className = "success";
+    document.getElementById("registroForm").reset();
+  }
+});
